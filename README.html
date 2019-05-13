@@ -524,9 +524,8 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 <h2 id="toc_1">现已支持如下接口：</h2>
 
 <ul>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 签名服务接口调用次数</li>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 搜索视频</li>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 搜索用户</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 搜索视频（需登陆或重试多次）</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 搜索用户（需登陆或重试多次）</li>
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 获取热搜榜</li>
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 获取cookie</li>
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked />  获取主页推荐视频列表</li>
@@ -537,63 +536,14 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked />  获取评论信息</li>
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked />  获取粉丝列表</li>
 <li class="task-list-item"><input disabled="disabled" type="checkbox" checked />  获取关注列表</li>
+<li class="task-list-item"><input disabled="disabled" type="checkbox" checked /> 签名服务接口调用次数 / 有效期</li>
 </ul>
+
+<p><strong>可提供登陆后的cookie</strong></p>
 
 <h2 id="toc_2">接口说明</h2>
 
-<h3 id="toc_3">1.获取使用次数</h3>
-
-<p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
-
-<p><strong>请求地址：</strong> <a href="http://127.0.0.1:5000/douyin/get_call_count">http://127.0.0.1:5000/douyin/get_call_count</a></p>
-
-<p><strong>返回结果：</strong></p>
-
-<pre><code class="language-text">{
-    &quot;code&quot;:200,
-    &quot;data&quot;:{
-        &quot;total_count&quot;: xxx,
-        &quot;used_count&quot;: xxx
-    }
-    &quot;msg&quot;:&quot;请求成功&quot;
-}
-</code></pre>
-
-<p><strong>参数说明：</strong></p>
-
-<table>
-<thead>
-<tr>
-<th style="text-align: left">参数</th>
-<th style="text-align: left">说明</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td style="text-align: left">code</td>
-<td style="text-align: left">返回码 （200 为成功， 非200出错）</td>
-</tr>
-<tr>
-<td style="text-align: left">data</td>
-<td style="text-align: left">返回的数据体</td>
-</tr>
-<tr>
-<td style="text-align: left">total_count</td>
-<td style="text-align: left">总次数</td>
-</tr>
-<tr>
-<td style="text-align: left">used_count</td>
-<td style="text-align: left">已用次数</td>
-</tr>
-<tr>
-<td style="text-align: left">msg</td>
-<td style="text-align: left">对返回码的文本描述内容</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="toc_4">2.搜索视频</h3>
+<h3 id="toc_3">1.搜索视频 (需登陆或重试多次)</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -684,7 +634,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_5">3.搜索用户</h3>
+<h3 id="toc_4">2.搜索用户 (需登陆或重试多次)</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -775,7 +725,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_6">4. 获取热榜</h3>
+<h3 id="toc_5">3. 获取热榜</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -787,10 +737,6 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
     &quot;proxies&quot;:&quot;xxx.xxx.xxx.xxx:xxx&quot;
 }
 </code></pre>
-
-<p><strong>请求示例</strong></p>
-
-<p><a href="http://127.0.0.1:5000/douyin/search_user?keyword=%E7%BE%8E%E5%A5%B3&amp;cursor=0">http://127.0.0.1:5000/douyin/search_user?keyword=美女&amp;cursor=0</a></p>
 
 <p><strong>参数说明：</strong></p>
 
@@ -848,7 +794,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_7">5. 获取cookie（非登陆cookie）</h3>
+<h3 id="toc_6">4. 获取cookie（非登陆cookie）</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -917,7 +863,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_8">6.获取主页推荐视频列表</h3>
+<h3 id="toc_7">5.获取主页推荐视频列表</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -926,9 +872,14 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 <p><strong>请求包体：</strong> </p>
 
 <pre><code class="language-text">{
-    &quot;proxies&quot;:&quot;xxx.xxx.xxx.xxx:xxx&quot;
+    &quot;proxies&quot;:&quot;xxx.xxx.xxx.xxx:xxx&quot;,
+    &quot;cookies&quot;:&quot;{\&quot;xxx\&quot;:&quot;\xxx\&quot;}&quot;,
 }
 </code></pre>
+
+<p><strong>请求示例</strong></p>
+
+<p><a href="http://127.0.0.1:5000/douyin/get_feed_info?cookies=%7B%22odin_tt%22:%20%22a124e10e85f7dc3b220202ff9d526c347314c2fadbd68d3d314b6ad7047dd71c064a9956bfc26e6edebcb58e8a5211b798303ad7cca243c50b00be5cce4b8814%22%7D">http://127.0.0.1:5000/douyin/get_feed_info?cookies={&quot;odin_tt&quot;: &quot;a124e10e85f7dc3b220202ff9d526c347314c2fadbd68d3d314b6ad7047dd71c064a9956bfc26e6edebcb58e8a5211b798303ad7cca243c50b00be5cce4b8814&quot;}</a></p>
 
 <p><strong>参数说明：</strong></p>
 
@@ -946,6 +897,11 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 <td style="text-align: left">proxies</td>
 <td style="text-align: left">否</td>
 <td style="text-align: left">代理ip</td>
+</tr>
+<tr>
+<td style="text-align: left">cookies</td>
+<td style="text-align: left">是</td>
+<td style="text-align: left">非登陆的cookie，json格式的字符串</td>
 </tr>
 </tbody>
 </table>
@@ -986,7 +942,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_9">7.获取用户信息</h3>
+<h3 id="toc_8">6.获取用户信息</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1001,7 +957,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 }
 </code></pre>
 
-<p>*<strong>请求示例</strong></p>
+<p><strong>请求示例</strong></p>
 
 <p><a href="http://127.0.0.1:5000/douyin/get_user_info?user_id=107776778033&amp;cookies=%7B%22odin_tt%22:%20%22a124e10e85f7dc3b220202ff9d526c347314c2fadbd68d3d314b6ad7047dd71c064a9956bfc26e6edebcb58e8a5211b798303ad7cca243c50b00be5cce4b8814%22%7D">http://127.0.0.1:5000/douyin/get_user_info?user_id=107776778033&amp;cookies={&quot;odin_tt&quot;: &quot;a124e10e85f7dc3b220202ff9d526c347314c2fadbd68d3d314b6ad7047dd71c064a9956bfc26e6edebcb58e8a5211b798303ad7cca243c50b00be5cce4b8814&quot;}</a></p>
 
@@ -1071,7 +1027,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_10">8.获取音乐信息</h3>
+<h3 id="toc_9">7.获取音乐信息</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1150,7 +1106,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_11">9.获取用户喜欢的视频</h3>
+<h3 id="toc_10">8.获取用户喜欢的视频</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1235,7 +1191,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_12">10.获取自己的视频</h3>
+<h3 id="toc_11">9.获取自己的视频</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1320,7 +1276,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_13">11.获取评论信息</h3>
+<h3 id="toc_12">10.获取评论信息</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1405,7 +1361,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_14">12.获取粉丝列表</h3>
+<h3 id="toc_13">11.获取粉丝列表</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1496,7 +1452,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h3 id="toc_15">13.获取关注列表</h3>
+<h3 id="toc_14">12.获取关注列表</h3>
 
 <p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
 
@@ -1587,7 +1543,106 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </tbody>
 </table>
 
-<h2 id="toc_16">联系方式</h2>
+<h3 id="toc_15">13.获取密钥使用次数</h3>
+
+<p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
+
+<p><strong>请求地址：</strong> <a href="http://127.0.0.1:5000/douyin/get_call_count">http://127.0.0.1:5000/douyin/get_call_count</a></p>
+
+<p><strong>返回结果：</strong></p>
+
+<pre><code class="language-text">{
+    &quot;code&quot;:200,
+    &quot;data&quot;:{
+        &quot;total_count&quot;: xxx,
+        &quot;used_count&quot;: xxx
+    }
+    &quot;msg&quot;:&quot;请求成功&quot;
+}
+</code></pre>
+
+<p><strong>参数说明：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">返回码 （200 为成功， 非200出错）</td>
+</tr>
+<tr>
+<td style="text-align: left">data</td>
+<td style="text-align: left">返回的数据体</td>
+</tr>
+<tr>
+<td style="text-align: left">total_count</td>
+<td style="text-align: left">总次数</td>
+</tr>
+<tr>
+<td style="text-align: left">used_count</td>
+<td style="text-align: left">已用次数</td>
+</tr>
+<tr>
+<td style="text-align: left">msg</td>
+<td style="text-align: left">对返回码的文本描述内容</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_16">14. 获取密钥有效期</h3>
+
+<p><strong>请求方式：</strong> GET(<strong>HTTP</strong>)</p>
+
+<p><strong>请求地址：</strong> <a href="http://127.0.0.1:5000/douyin/get_valid_date">http://127.0.0.1:5000/douyin/get_valid_date</a></p>
+
+<p><strong>返回结果：</strong></p>
+
+<pre><code class="language-text">{
+    &quot;code&quot;:200,
+    &quot;data&quot;:{
+        &quot;valid_date&quot;: xxx
+    }
+    &quot;msg&quot;:&quot;请求成功&quot;
+}
+</code></pre>
+
+<p><strong>参数说明：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">返回码 （200 为成功， 非200出错）</td>
+</tr>
+<tr>
+<td style="text-align: left">data</td>
+<td style="text-align: left">返回的数据体</td>
+</tr>
+<tr>
+<td style="text-align: left">valid_date</td>
+<td style="text-align: left">有效期</td>
+</tr>
+<tr>
+<td style="text-align: left">msg</td>
+<td style="text-align: left">对返回码的文本描述内容</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_17">联系方式</h2>
 
 <p><strong>email</strong>: <a href="mailto:bzkj@bzkj.tech">bzkj@bzkj.tech</a></p>
 
